@@ -1,20 +1,14 @@
-import pygame
+import tkinter as tk
+from tkinter import ttk
 
-pygame.init()
+class App(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Fizzbuzz - A new way to learn more things")
+        self.geometry("500x500")
+        self.resizable(False, False)
+        self.attributes("-toolwindow", True)
 
-screen = pygame.display.set_mode((500, 500))
-clock = pygame.time.Clock()
-running = True
-player_pos = pygame.Vector2()
-
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    
-    screen.fill("black")
-    pygame.display.flip()
-    clock.tick(60)
-
-pygame.quit()
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
