@@ -8,11 +8,8 @@ class Button(ttk.Button):
         super().__init__(container)
 
         self.play_button = ImageTk.PhotoImage(Image.open("img/play_button.png"))
-        self.config(image=self.play_button, command=self.play)
+        self.config(image=self.play_button)
         self.place(x=0, y=0)
-
-    def play(self):
-        pass
 
 class App(tk.Tk):
     def __init__(self):
@@ -27,7 +24,15 @@ class App(tk.Tk):
         self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         self.button = Button(self)
+        self.button["command"] = self.play
         self.button.place(x=533, y=250, anchor="center")
+
+    def play(self):
+        for widget in app.winfo_children():
+            widget.destroy()
+        self.play_background = ImageTk.PhotoImage(Image.open("img/background.png"))
+        self.play_background_label = tk.Label(self, image=self.background)
+        self.play_background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 
 if __name__ == "__main__":
