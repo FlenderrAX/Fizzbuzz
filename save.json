@@ -9,8 +9,8 @@
         {
             "index": 2,
             "question": "12 ÷ 3 ?",
-            "answer": "3",
-            "wrong_answer": "4"
+            "answer": "4",
+            "wrong_answer": "3"
         },
         {
             "index": 3,
