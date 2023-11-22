@@ -61,8 +61,8 @@ class App(tk.Tk):
         self.result_label = tk.Label(self, font=("Arial", 13), bg="#ffffff")
         self.result_label.place(x=533, y=400, anchor="center")
 
-        # Start the countdown
-        self.time_left = 10  # Change this to change the countdown time
+
+        self.time_left = 10
         self.countdown_label = tk.Label(self, text=f"Time left: {self.time_left}", font=("Arial", 13), bg="#ffffff")
         self.countdown_label.place(x=533, y=450, anchor="center")
         self.countdown()
@@ -71,15 +71,13 @@ class App(tk.Tk):
         if self.time_left > 0:
             self.time_left -= 1
             self.countdown_label.config(text=f"Time left: {self.time_left}")
-            self.after(1000, self.countdown)  # Call this method again after 1 second
+            self.after(1000, self.countdown)
         else:
-            self.answer(False)  # Time's up, count as wrong answer
+            self.answer(False)
 
     def answer(self, is_correct):
-        # Cancel the countdown
         self.time_left = 0
 
-        # Disable the buttons
         self.correct_answer_button.config(state='disabled')
         self.wrong_answer_button.config(state='disabled')
 
@@ -91,7 +89,6 @@ class App(tk.Tk):
             self.result_label.config(text="You are wrong!", fg="red")
             self.bad_answers += 1
 
-        # Wait for 2 seconds before loading the next question
         self.after(2000, self.play)
 
 if __name__ == "__main__":
